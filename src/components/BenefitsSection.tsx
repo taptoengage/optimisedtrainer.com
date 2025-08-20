@@ -69,7 +69,7 @@ export const BenefitsSection: React.FC = () => {
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/797d3a2b736de9e12e68288bb951d29e3b463cea?width=1302"
               alt="Professional personal trainer"
-              className="w-full object-cover rounded-[14px] aspect-[16/9]"
+              className="w-full h-[200px] lg:h-[180px] md:h-[160px] max-md:h-[140px] max-sm:h-[120px] shrink-0 self-stretch object-cover rounded-[14px]"
             />
             <div className="w-full h-full absolute rounded-[14px] left-0 top-0 bg-gradient-to-r from-black/20 to-transparent" />
           </div>
@@ -100,7 +100,7 @@ export const BenefitsSection: React.FC = () => {
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/f4044a7cae68fd2752a37eff955a9b24c1cadcc4?width=1302"
               alt="Client using fitness app"
-              className="w-full object-cover rounded-[14px] aspect-[16/9]"
+              className="w-full h-[200px] lg:h-[180px] md:h-[160px] max-md:h-[140px] max-sm:h-[120px] shrink-0 self-stretch object-cover rounded-[14px]"
             />
             <div className="w-full h-full absolute rounded-[14px] left-0 top-0 bg-gradient-to-r from-black/20 to-transparent" />
           </div>

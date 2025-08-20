@@ -15,11 +15,11 @@ export const ProductShowcase: React.FC = () => {
           </div>
         </header>
         
-        <div className="flex flex-col items-start shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] relative w-full p-7 rounded-[14px] max-md:p-5 aspect-[4/3]">
+        <div className="flex flex-col items-start shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] relative w-full p-7 rounded-[14px] max-md:p-5 h-[400px] lg:h-[350px] md:h-[300px] max-md:h-[250px] max-sm:h-[200px]">
           <img
             src="https://api.builder.io/api/v1/image/assets/TEMP/05ec04a4a985abd486ca0010617f6130c2f10fc4?width=1680"
             alt="Optimised Trainer Dashboard"
-            className="w-full h-full object-cover rounded-lg aspect-[4/3]"
+            className="w-full h-full shrink-0 self-stretch object-cover rounded-lg"
           />
           <div className="flex flex-col items-start gap-2.5 absolute backdrop-blur-sm bg-[rgba(255,255,255,0.90)] p-5 rounded-xl right-6 top-6 w-72 max-w-sm lg:w-64 md:w-56 max-md:w-48 max-sm:w-40 max-sm:p-3 max-sm:right-3 max-sm:top-3">
             <h3 className="text-[#1A1A1A] text-sm font-semibold leading-6 max-sm:text-xs max-sm:leading-5">
