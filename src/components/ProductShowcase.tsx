@@ -2,7 +2,7 @@ import React from 'react';
 
 export const ProductShowcase: React.FC = () => {
   return (
-    <section className="flex flex-col justify-center items-center gap-14 w-full px-72 lg:px-60 md:px-40 max-md:px-10 max-sm:px-5 py-16 lg:py-20">
+    <section className="flex flex-col justify-center items-center gap-14 w-full px-72 lg:px-60 md:px-40 max-md:px-10 max-sm:px-5 py-16 lg:py-20 border-2 border-red-500">
       <div className="flex flex-col items-center gap-14 w-full">
         <header className="flex flex-col items-center gap-3.5 w-full">
           <h2 className="text-[#1A1A1A] text-center text-2xl font-semibold leading-8 lg:text-xl lg:leading-7 max-sm:text-lg max-sm:leading-6">

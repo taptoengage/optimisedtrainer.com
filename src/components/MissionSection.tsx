@@ -20,7 +20,7 @@ export const MissionSection: React.FC = () => {
   ];
 
   return (
-    <section className="flex w-full flex-col items-start min-h-[470px] bg-[rgba(248,250,252,0.30)] px-72 py-20 lg:px-60 md:px-40 max-md:px-10 max-sm:px-5">
+    <section className="flex w-full flex-col items-start min-h-[470px] bg-[rgba(248,250,252,0.30)] px-72 py-20 lg:px-60 md:px-40 max-md:px-10 max-sm:px-5 border-2 border-red-500">
       <div className="flex flex-col items-start gap-7 self-stretch relative max-sm:gap-5">
         <header className="flex flex-col items-center self-stretch relative">
           <h2 className="self-stretch text-[#1A1A1A] text-center text-2xl font-semibold leading-8 lg:text-xl lg:leading-7 max-sm:text-lg max-sm:leading-6">

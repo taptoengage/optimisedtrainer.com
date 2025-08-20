@@ -15,9 +15,9 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="flex flex-col items-center w-full bg-[#1A1A1A] py-20 lg:py-16 max-md:py-12 max-sm:py-10">
+    <footer className="flex flex-col items-center w-full bg-[#1A1A1A] py-20 lg:py-16 max-md:py-12 max-sm:py-10 border-2 border-red-500">
       {/* Hero signup section */}
-      <div className="flex flex-col items-center gap-8 w-full max-w-4xl px-6 mb-20 lg:mb-16 max-md:mb-12 max-sm:mb-10">
+      <div className="flex flex-col items-center gap-8 w-full px-6 mb-20 lg:mb-16 max-md:mb-12 max-sm:mb-10 border-2 border-yellow-500">
         <header className="flex flex-col items-center gap-4 text-center">
           <h2 className="text-white text-2xl font-semibold leading-8 lg:text-xl lg:leading-7 max-sm:text-lg max-sm:leading-6">
             Be the first to experience Optimised Trainer
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
       </div>
       
       {/* Footer navigation */}
-      <div className="flex flex-col w-full max-w-6xl px-6 pt-10 border-t border-[rgba(255,255,255,0.20)]">
+      <div className="flex flex-col w-full px-6 pt-10 border-t border-[rgba(255,255,255,0.20)] border-2 border-blue-500">
         <div className="flex flex-col gap-8">
           <div className="flex justify-between items-center max-sm:flex-col max-sm:gap-6 max-sm:items-start">
             <div className="flex flex-col">
