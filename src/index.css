@@ -13,7 +13,7 @@ All colors MUST be HSL.
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221 83% 53%; /* Better blue for buttons */
+    --primary: 221 83% 53%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -35,6 +35,27 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Enhanced spacing scale */
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    
+    /* Enhanced typography scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
   }
   
   .dark {
@@ -74,22 +95,27 @@ All colors MUST be HSL.
   }
   body {
     @apply bg-background text-foreground;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer components {
-  /* Hero Section Styles */
+  /* Enhanced Hero Section with Better Contrast */
   .hero-section {
     position: relative;
-    min-height: 80vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow: hidden;
   }
   
+  /* Stronger overlay for better text contrast */
   .hero-section::before {
     content: '';
     position: absolute;
@@ -99,155 +125,234 @@ All colors MUST be HSL.
     bottom: 0;
     background: linear-gradient(
       135deg, 
-      rgba(0, 0, 0, 0.7) 0%, 
-      rgba(0, 0, 0, 0.4) 50%, 
-      rgba(0, 0, 0, 0.2) 100%
+      rgba(0, 0, 0, 0.8) 0%, 
+      rgba(0, 0, 0, 0.6) 40%, 
+      rgba(0, 0, 0, 0.4) 70%, 
+      rgba(0, 0, 0, 0.3) 100%
+    );
+    z-index: 1;
+  }
+  
+  /* Additional overlay for extra contrast */
+  .hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      ellipse at left center,
+      rgba(0, 0, 0, 0.5) 0%,
+      transparent 70%
     );
     z-index: 1;
   }
   
   .hero-content {
     position: relative;
-    z-index: 2;
-    color: white;
+    z-index: 10;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
   }
   
+  /* Force white text with high specificity */
   .hero-section h1,
-  .hero-section .hero-title {
-    color: white !important;
+  .hero-section .hero-title,
+  .hero-section [class*="text-"] h1 {
+    color: #ffffff !important;
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.025em;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: var(--space-lg);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
   }
   
   .hero-section p,
-  .hero-section .hero-description {
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-size: 1.25rem;
-    line-height: 1.6;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  .hero-section .hero-description,
+  .hero-section [class*="text-"] p {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+    line-height: 1.7;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    margin-bottom: var(--space-xl);
+    max-width: 42rem;
+    font-weight: 400;
   }
   
-  /* Button Styles */
-  .btn-primary {
-    background: hsl(var(--primary));
-    color: white;
-    padding: 0.875rem 2rem;
-    border-radius: 0.5rem;
+  /* Enhanced Button Styles with Better Spacing */
+  .btn-primary,
+  button[class*="bg-primary"],
+  .hero-section button:first-of-type {
+    background: hsl(var(--primary)) !important;
+    color: white !important;
+    padding: var(--space-lg) var(--space-2xl);
+    border-radius: calc(var(--radius) + 2px);
     font-weight: 600;
-    font-size: 1rem;
+    font-size: var(--text-base);
     border: none;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px 0 rgba(34, 99, 235, 0.39);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    text-decoration: none;
   }
   
-  .btn-primary:hover {
-    background: hsl(var(--primary) / 0.9);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  .btn-primary:hover,
+  button[class*="bg-primary"]:hover,
+  .hero-section button:first-of-type:hover {
+    background: hsl(var(--primary) / 0.9) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px 0 rgba(34, 99, 235, 0.5);
   }
   
-  .btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    padding: 0.875rem 2rem;
-    border-radius: 0.5rem;
+  .btn-secondary,
+  .hero-section button:last-of-type,
+  button[class*="border"] {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    padding: calc(var(--space-lg) - 2px) calc(var(--space-2xl) - 2px);
+    border-radius: calc(var(--radius) + 2px);
     font-weight: 600;
-    font-size: 1rem;
+    font-size: var(--text-base);
     cursor: pointer;
-    transition: all 0.2s ease;
-    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(12px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    text-decoration: none;
   }
   
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
-    transform: translateY(-1px);
+  .btn-secondary:hover,
+  .hero-section button:last-of-type:hover,
+  button[class*="border"]:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
   }
   
-  .hero-buttons {
+  .hero-buttons,
+  .hero-section > div > div {
     display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
+    gap: var(--space-lg);
+    margin-top: var(--space-2xl);
     flex-wrap: wrap;
+    align-items: center;
   }
   
-  /* Form Styles */
-  .email-input {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    padding: 0.75rem 1rem;
-    border-radius: 0.5rem;
-    backdrop-filter: blur(10px);
+  /* Enhanced Form Styles */
+  .email-input,
+  input[type="email"] {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius);
+    backdrop-filter: blur(12px);
     flex: 1;
-    min-width: 200px;
+    min-width: 250px;
+    font-size: var(--text-base);
+    transition: all 0.3s ease;
   }
   
-  .email-input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+  .email-input::placeholder,
+  input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
   }
   
-  .email-input:focus {
-    outline: none;
-    border-color: hsl(var(--primary));
-    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.3);
+  .email-input:focus,
+  input[type="email"]:focus {
+    outline: none !important;
+    border-color: hsl(var(--primary)) !important;
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.3) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
   }
   
-  /* Section Backgrounds */
+  /* Enhanced Section Styles with Better Spacing */
   .section-light {
     background: hsl(var(--background));
+    padding: var(--space-3xl) 0;
   }
   
   .section-muted {
-    background: hsl(var(--muted) / 0.3);
+    background: hsl(var(--muted) / 0.4);
+    padding: var(--space-3xl) 0;
   }
   
   .section-secondary {
-    background: hsl(var(--secondary) / 0.5);
+    background: hsl(var(--secondary) / 0.6);
+    padding: var(--space-3xl) 0;
   }
   
-  /* Card Styles */
+  /* Enhanced Card Styles */
   .feature-card {
     background: hsl(var(--card));
-    border: 1px solid hsl(var(--border));
-    border-radius: 1rem;
-    padding: 2rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid hsl(var(--border) / 0.5);
+    border-radius: calc(var(--radius) * 2);
+    padding: var(--space-2xl);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    height: 100%;
   }
   
   .feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: hsl(var(--primary) / 0.3);
   }
   
-  /* Typography Improvements */
+  /* Enhanced Typography */
   h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 700;
     line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: var(--space-lg);
   }
   
   h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 600;
     line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-md);
   }
   
   h3 {
-    font-size: 1.875rem;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
     font-weight: 600;
     line-height: 1.3;
+    margin-bottom: var(--space-sm);
   }
   
-  /* Footer Styles */
+  h4 {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: var(--space-sm);
+  }
+  
+  p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+  
+  /* Enhanced Footer */
   .footer-dark {
     background: hsl(var(--foreground));
     color: hsl(var(--background));
+    padding: var(--space-3xl) 0 var(--space-xl) 0;
   }
   
   .footer-dark h2,
@@ -256,36 +361,59 @@ All colors MUST be HSL.
   }
   
   .footer-dark p {
-    color: hsl(var(--background) / 0.8);
+    color: hsl(var(--background) / 0.85);
   }
 }
 
 @layer utilities {
-  /* Text utilities for hero */
+  /* Enhanced text utilities */
   .text-hero-white {
-    color: white !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
   }
   
   .text-hero-muted {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   }
   
-  /* Container utilities */
+  /* Enhanced container utilities */
   .container-wide {
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
   }
   
-  /* Animation utilities */
+  .container-narrow {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+  
+  /* Enhanced spacing utilities */
+  .space-section {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .space-section-sm {
+    padding: var(--space-2xl) 0;
+  }
+  
+  /* Enhanced animation utilities */
   .animate-fade-in {
-    animation: fadeIn 0.8s ease-out;
+    animation: fadeIn 1s ease-out;
   }
   
   .animate-slide-up {
-    animation: slideUp 0.8s ease-out;
+    animation: slideUp 1s ease-out;
+  }
+  
+  .animate-slide-up-delay {
+    animation: slideUp 1s ease-out 0.2s both;
   }
   
   @keyframes fadeIn {
@@ -300,7 +428,7 @@ All colors MUST be HSL.
   @keyframes slideUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -309,20 +437,90 @@ All colors MUST be HSL.
   }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hero-buttons {
-    flex-direction: column;
+/* Enhanced Responsive Design */
+@media (max-width: 1024px) {
+  .container-wide {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
   }
-  
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    justify-content: center;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --space-xs: 0.375rem;
+    --space-sm: 0.5rem;
+    --space-md: 0.75rem;
+    --space-lg: 1rem;
+    --space-xl: 1.5rem;
+    --space-2xl: 2rem;
+    --space-3xl: 2.5rem;
   }
   
   .hero-section {
-    min-height: 70vh;
+    min-height: 100vh;
     text-align: center;
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+  
+  .hero-content {
+    padding: 0 var(--space-md);
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  button {
+    width: 100%;
+    justify-content: center;
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--text-lg);
+    min-height: 3.5rem;
+  }
+  
+  .feature-card {
+    padding: var(--space-xl);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .email-input {
+    min-width: 100%;
+    margin-bottom: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 0 var(--space-sm);
+  }
+  
+  .container-wide {
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
+  }
+  
+  .feature-card {
+    padding: var(--space-lg);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .hero-section::before {
+    background: linear-gradient(
+      135deg, 
+      rgba(0, 0, 0, 0.9) 0%, 
+      rgba(0, 0, 0, 0.8) 100%
+    );
+  }
+  
+  .hero-section h1,
+  .hero-section p {
+    text-shadow: 0 0 8px rgba(0, 0, 0, 1);
   }
 }
