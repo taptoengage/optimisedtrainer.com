@@ -20,7 +20,7 @@ export const MissionSection: React.FC = () => {
   ];
 
   return (
-    <section className="flex w-full flex-col items-start min-h-[470px] bg-[rgba(248,250,252,0.30)] px-96 py-20 xl:px-80 lg:px-64 md:px-48 max-md:px-8 max-md:py-12 max-sm:px-4 max-sm:py-8">
+    <section className="flex w-full flex-col items-start min-h-[470px] bg-[rgba(248,250,252,0.30)] px-72 py-20 lg:px-60 md:px-40 max-md:px-10 max-sm:px-5">
       <div className="flex flex-col items-start gap-7 self-stretch relative max-sm:gap-5">
         <header className="flex flex-col items-center self-stretch relative">
           <h2 className="self-stretch text-[#1A1A1A] text-center text-2xl font-semibold leading-8 lg:text-xl lg:leading-7 max-sm:text-lg max-sm:leading-6">
@@ -36,18 +36,18 @@ export const MissionSection: React.FC = () => {
         
         <div className="flex justify-center items-start gap-7 self-stretch relative pt-7 max-md:flex-col max-md:gap-6 max-sm:gap-4 max-sm:pt-4">
           {values.map((value, index) => (
-            <article key={index} className="w-[243px] self-stretch relative flex flex-col items-center max-md:w-full">
-              <div className="flex w-[243px] flex-col items-center relative mb-2">
+            <article key={index} className="flex-1 self-stretch relative flex flex-col items-center max-md:w-full">
+              <div className="flex flex-col items-center relative mb-2">
                 <span className="text-[#1A1A1A] text-center text-2xl font-normal leading-[31.5px]">
                   {value.emoji}
                 </span>
               </div>
-              <h3 className="flex w-[243px] flex-col items-center relative mb-[5px]">
+              <h3 className="flex flex-col items-center relative mb-[5px]">
                 <span className="text-[#1A1A1A] text-center text-[17px] font-semibold leading-[24.5px]">
                   {value.title}
                 </span>
               </h3>
-              <div className="flex w-[243px] flex-col items-center relative">
+              <div className="flex flex-col items-center relative">
                 <p className="text-slate-500 text-center text-sm font-normal leading-6 max-sm:text-sm max-sm:leading-6">
                   {value.description}
                 </p>

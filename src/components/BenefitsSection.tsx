@@ -62,7 +62,7 @@ export const BenefitsSection: React.FC = () => {
   ];
 
   return (
-    <section className="flex w-full flex-col items-start min-h-[653px] bg-[rgba(248,250,252,0.20)] px-72 py-20 lg:px-56 md:px-40 max-md:px-8 max-md:py-12 max-sm:px-4 max-sm:py-8">
+    <section className="flex w-full flex-col items-start min-h-[653px] bg-[rgba(248,250,252,0.20)] px-72 py-20 lg:px-60 md:px-40 max-md:px-10 max-sm:px-5">
       <div className="flex justify-center items-center gap-14 self-stretch relative max-md:flex-col max-md:gap-8 max-sm:gap-6">
         <article className="flex flex-col items-start gap-7 flex-[1_0_0] relative max-sm:gap-5">
           <div className="flex flex-col items-start self-stretch relative">
