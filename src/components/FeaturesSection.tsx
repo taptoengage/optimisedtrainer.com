@@ -39,16 +39,15 @@ export const FeaturesSection: React.FC = () => {
   ];
 
   return (
-    <section className="flex w-full flex-col items-start h-[483px] bg-[rgba(248,250,252,0.30)] px-[260px] py-[84px] max-md:px-10 max-md:py-[60px] max-sm:px-5 max-sm:py-10">
-      <div className="flex max-w-[1400px] flex-col items-start gap-14 self-stretch relative px-[21px] py-0">
+    <section className="flex w-full flex-col items-start h-[483px] bg-[rgba(248,250,252,0.30)] px-64 py-20 lg:px-48 md:px-32 max-md:px-10 max-md:py-16 max-sm:px-5 max-sm:py-10">
+      <div className="flex max-w-[1400px] flex-col items-start gap-14 self-stretch relative px-6 py-0">
         <header className="flex flex-col items-center gap-3.5 self-stretch relative">
-          <h2 className="self-stretch text-[#1A1A1A] text-center text-2xl font-semibold leading-8">
+          <h2 className="self-stretch text-[#1A1A1A] text-center text-2xl font-semibold leading-8 lg:text-xl lg:leading-7 max-sm:text-lg max-sm:leading-6">
             Everything you need to grow your training business
           </h2>
-          <div className="flex w-[588px] max-w-[588px] flex-col items-center relative max-sm:w-full">
-            <p className="text-[#1A1A1A] text-center text-base font-normal leading-[24.5px]">
-              Focus on what you do best — training clients
-              <br />— while we handle the business management.
+          <div className="flex max-w-2xl flex-col items-center relative max-sm:w-full">
+            <p className="text-[#1A1A1A] text-center text-base font-normal leading-relaxed max-md:text-sm max-md:leading-6 max-sm:text-sm max-sm:leading-6">
+              Focus on what you do best — training clients — while we handle the business management.
             </p>
           </div>
         </header>
@@ -64,8 +63,8 @@ export const FeaturesSection: React.FC = () => {
                   {feature.title}
                 </span>
               </h3>
-              <div className="flex w-[336px] max-w-[336px] flex-col items-center relative">
-                <p className="text-[#1A1A1A] text-center text-[13px] font-normal leading-[21px]">
+              <div className="flex max-w-sm flex-col items-center relative">
+                <p className="text-[#1A1A1A] text-center text-sm font-normal leading-6 max-sm:text-sm max-sm:leading-6">
                   {feature.description}
                 </p>
               </div>

@@ -7,7 +7,7 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="flex w-full flex-col items-start h-[494px] pt-[84px] pb-[168px] px-[281px] relative max-md:pt-[60px] max-md:pb-[120px] max-md:px-10 max-sm:pt-10 max-sm:pb-20 max-sm:px-5">
+    <section className="flex w-full flex-col items-start h-[494px] pt-20 pb-42 px-72 relative lg:px-60 md:pt-16 md:pb-32 md:px-40 max-md:pt-12 max-md:pb-24 max-md:px-10 max-sm:pt-10 max-sm:pb-20 max-sm:px-5">
       <div className="flex w-full h-[494px] flex-col items-start absolute top-0 inset-x-0">
         <img
           src="https://api.builder.io/api/v1/image/assets/TEMP/ce75efa29674fec23ce01cf60a76b9d7b6da49bf?width=3840"
@@ -17,22 +17,16 @@ export const HeroSection: React.FC = () => {
         <div className="w-full h-[493.5px] absolute left-0 top-0 bg-gradient-to-r from-black/20 to-transparent" />
       </div>
       
-      <div className="hero-text-white flex flex-col items-start gap-[21px] self-stretch relative z-[1]">
+      <div className="hero-text-white flex flex-col items-start gap-6 self-stretch relative z-[1]">
         <header className="flex flex-col items-start self-stretch relative">
-          <h1 className="self-stretch text-5xl font-semibold leading-[56px] max-md:text-4xl max-md:leading-[44px] max-sm:text-[28px] max-sm:leading-9">
-            Train Smarter.
-            <br />
-            Run Your Business Better.
+          <h1 className="self-stretch text-5xl font-semibold leading-[56px] lg:text-4xl lg:leading-[48px] md:text-4xl md:leading-[44px] max-md:text-3xl max-md:leading-10 max-sm:text-[28px] max-sm:leading-9">
+            Train Smarter. Run Your Business Better.
           </h1>
         </header>
         
-        <div className="flex w-[588px] max-w-[588px] flex-col items-start relative max-sm:w-full">
-          <p className="text-base font-normal leading-[24.5px] max-md:text-sm max-md:leading-[22px]">
-            A complete client management system built for
-            <br />
-            independent personal trainers. Streamline scheduling,
-            <br />
-            payments, and client relationships in one elegant platform.
+        <div className="flex max-w-xl flex-col items-start relative max-sm:w-full">
+          <p className="text-base font-normal leading-relaxed md:text-base md:leading-6 max-md:text-sm max-md:leading-6 max-sm:text-sm max-sm:leading-6">
+            A complete client management system built for independent personal trainers. Streamline scheduling, payments, and client relationships in one elegant platform.
           </p>
         </div>
         

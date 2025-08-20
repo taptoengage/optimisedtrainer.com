@@ -8,11 +8,9 @@ export const ProductShowcase: React.FC = () => {
           <h2 className="self-stretch text-[#1A1A1A] text-center text-2xl font-semibold leading-8">
             Beautiful design meets powerful functionality
           </h2>
-          <div className="flex w-[588px] max-w-[588px] flex-col items-center relative max-sm:w-full">
-            <p className="text-[#1A1A1A] text-center text-base font-normal leading-[24.5px]">
-              Intuitive interfaces designed specifically
-              <br />
-              for personal trainers and their clients.
+          <div className="flex max-w-2xl flex-col items-center relative max-sm:w-full">
+            <p className="text-[#1A1A1A] text-center text-base font-normal leading-relaxed max-md:text-sm max-md:leading-6 max-sm:text-sm max-sm:leading-6">
+              Intuitive interfaces designed specifically for personal trainers and their clients.
             </p>
           </div>
         </header>
@@ -28,16 +26,16 @@ export const ProductShowcase: React.FC = () => {
               Dashboard Overview
             </h3>
             <ul className="flex flex-col items-start gap-1.5 self-stretch relative list-none">
-              <li className="self-stretch text-slate-500 text-[11px] font-normal leading-[17.5px]">
+              <li className="self-stretch text-slate-500 text-sm font-normal leading-5">
                 • Daily appointment tracking
               </li>
-              <li className="self-stretch text-slate-500 text-[11px] font-normal leading-[17.5px]">
+              <li className="self-stretch text-slate-500 text-sm font-normal leading-5">
                 • Revenue analytics
               </li>
-              <li className="self-stretch text-slate-500 text-[11px] font-normal leading-[17.5px]">
+              <li className="self-stretch text-slate-500 text-sm font-normal leading-5">
                 • Clients running low on their pack quota
               </li>
-              <li className="self-stretch text-slate-500 text-[11px] font-normal leading-[17.5px]">
+              <li className="self-stretch text-slate-500 text-sm font-normal leading-5">
                 • Payment status
               </li>
             </ul>
@@ -49,12 +47,8 @@ export const ProductShowcase: React.FC = () => {
             <h3 className="self-stretch text-[#1A1A1A] text-[17px] font-semibold leading-[24.5px]">
               For Trainers
             </h3>
-            <p className="self-stretch text-slate-500 text-[11px] font-normal leading-[17.5px]">
-              Comprehensive business management with scheduling,
-              <br />
-              payment processing, client communication, and progress
-              <br />
-              tracking — all in one place.
+            <p className="self-stretch text-slate-500 text-sm font-normal leading-6">
+              Comprehensive business management with scheduling, payment processing, client communication, and progress tracking — all in one place.
             </p>
           </article>
           
@@ -62,10 +56,8 @@ export const ProductShowcase: React.FC = () => {
             <h3 className="self-stretch text-[#1A1A1A] text-[17px] font-semibold leading-[24.5px]">
               For Clients
             </h3>
-            <p className="self-stretch text-slate-500 text-[11px] font-normal leading-[17.5px]">
-              Simple booking interface, secure payments, workout
-              <br />
-              tracking, and direct communication with their trainer.
+            <p className="self-stretch text-slate-500 text-sm font-normal leading-6">
+              Simple booking interface, secure payments, workout tracking, and direct communication with their trainer.
             </p>
           </article>
         </div>

@@ -62,7 +62,7 @@ export const BenefitsSection: React.FC = () => {
   ];
 
   return (
-    <section className="flex w-full flex-col items-start h-[653px] bg-[rgba(248,250,252,0.20)] px-[281px] py-[84px] max-md:px-10 max-md:py-[60px] max-sm:px-5 max-sm:py-10">
+    <section className="flex w-full flex-col items-start h-[653px] bg-[rgba(248,250,252,0.20)] px-72 py-20 lg:px-56 md:px-40 max-md:px-10 max-md:py-16 max-sm:px-5 max-sm:py-10">
       <div className="flex justify-center items-center gap-14 self-stretch relative max-md:flex-col max-md:gap-10">
         <article className="flex flex-col items-start gap-7 flex-[1_0_0] relative">
           <div className="flex flex-col items-start self-stretch relative">
@@ -78,17 +78,15 @@ export const BenefitsSection: React.FC = () => {
             <h3 className="self-stretch text-[#1A1A1A] text-xl font-semibold leading-7">
               Built for Trainers
             </h3>
-            <p className="self-stretch text-[#1A1A1A] text-[13px] font-normal leading-[21px]">
-              Spend less time on paperwork and more time doing what you love — training clients and growing your
-              <br />
-              business.
+            <p className="self-stretch text-[#1A1A1A] text-sm font-normal leading-6 max-sm:text-sm max-sm:leading-6">
+              Spend less time on paperwork and more time doing what you love — training clients and growing your business.
             </p>
             
             <ul className="flex flex-col items-start gap-[13px] self-stretch relative pt-1.5 list-none">
               {trainerBenefits.map((benefit, index) => (
                 <li key={index} className="flex items-center gap-[10.5px] self-stretch relative">
                   {benefit.icon}
-                  <span className="text-[#1A1A1A] text-xs font-normal leading-[17.5px]">
+                  <span className="text-[#1A1A1A] text-sm font-normal leading-5">
                     {benefit.text}
                   </span>
                 </li>
@@ -111,17 +109,15 @@ export const BenefitsSection: React.FC = () => {
             <h3 className="self-stretch text-[#1A1A1A] text-xl font-semibold leading-7">
               Loved by Clients
             </h3>
-            <p className="self-stretch text-[#1A1A1A] text-[13px] font-normal leading-[21px]">
-              Give your clients a premium experience with intuitive booking, secure payments, and seamless
-              <br />
-              communication.
+            <p className="self-stretch text-[#1A1A1A] text-sm font-normal leading-6 max-sm:text-sm max-sm:leading-6">
+              Give your clients a premium experience with intuitive booking, secure payments, and seamless communication.
             </p>
             
             <ul className="flex flex-col items-start gap-[13px] self-stretch relative pt-1.5 list-none">
               {clientBenefits.map((benefit, index) => (
                 <li key={index} className="flex items-center gap-[10.5px] self-stretch relative">
                   {benefit.icon}
-                  <span className="text-[#1A1A1A] text-xs font-normal leading-[17.5px]">
+                  <span className="text-[#1A1A1A] text-sm font-normal leading-5">
                     {benefit.text}
                   </span>
                 </li>
