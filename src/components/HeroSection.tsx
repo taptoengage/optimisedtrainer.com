@@ -30,16 +30,16 @@ export const HeroSection: React.FC = () => {
           </p>
         </div>
         
-        <div className="flex items-start gap-3.5 self-stretch relative pt-[7px] max-sm:flex-col max-sm:gap-3">
+        <div className="flex items-start gap-3.5 self-stretch relative pt-2 max-sm:flex-col max-sm:gap-3">
           <EmailSignupForm 
             buttonText="Join the Beta"
             className="flex items-start gap-3.5"
           />
           <button
             onClick={handleWatchDemo}
-            className="flex h-[35px] justify-center items-center border border-slate-200 relative cursor-pointer bg-white hover:bg-gray-50 pt-[7.75px] pb-[9.25px] px-[29px] rounded-md border-solid max-sm:w-full max-sm:justify-center transition-colors"
+            className="flex h-11 min-h-11 justify-center items-center border border-slate-200 relative cursor-pointer bg-white hover:bg-gray-50 hover:border-slate-300 hover:shadow-md px-8 py-2 rounded-md border-solid max-sm:w-full max-sm:justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 active:scale-95 active:transition-transform"
           >
-            <span className="text-[#1A1A1A] text-center text-xs font-normal leading-[17.5px]">
+            <span className="text-[#1A1A1A] text-center text-sm font-medium leading-5">
               Watch Demo
             </span>
           </button>
