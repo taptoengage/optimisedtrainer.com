@@ -20,8 +20,8 @@ export const MissionSection: React.FC = () => {
   ];
 
   return (
-    <section className="flex w-full flex-col items-start min-h-[470px] bg-[rgba(248,250,252,0.30)] px-96 py-20 xl:px-80 lg:px-64 md:px-48 max-md:px-32 max-md:py-16 max-sm:px-5 max-sm:py-10">
-      <div className="flex flex-col items-start gap-7 self-stretch relative">
+    <section className="flex w-full flex-col items-start min-h-[470px] bg-[rgba(248,250,252,0.30)] px-96 py-20 xl:px-80 lg:px-64 md:px-48 max-md:px-8 max-md:py-12 max-sm:px-4 max-sm:py-8">
+      <div className="flex flex-col items-start gap-7 self-stretch relative max-sm:gap-5">
         <header className="flex flex-col items-center self-stretch relative">
           <h2 className="self-stretch text-[#1A1A1A] text-center text-2xl font-semibold leading-8 lg:text-xl lg:leading-7 max-sm:text-lg max-sm:leading-6">
             Empowering independent trainers, not just big gyms
@@ -34,7 +34,7 @@ export const MissionSection: React.FC = () => {
           </p>
         </div>
         
-        <div className="flex justify-center items-start gap-7 self-stretch relative pt-7 max-md:flex-col max-md:gap-6">
+        <div className="flex justify-center items-start gap-7 self-stretch relative pt-7 max-md:flex-col max-md:gap-6 max-sm:gap-4 max-sm:pt-4">
           {values.map((value, index) => (
             <article key={index} className="w-[243px] self-stretch relative flex flex-col items-center max-md:w-full">
               <div className="flex w-[243px] flex-col items-center relative mb-2">

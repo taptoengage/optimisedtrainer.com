@@ -39,10 +39,10 @@ export const FeaturesSection: React.FC = () => {
   ];
 
   return (
-    <section className="flex w-full flex-col items-start min-h-[483px] bg-[rgba(248,250,252,0.30)] px-64 py-20 lg:px-48 md:px-32 max-md:px-10 max-md:py-16 max-sm:px-5 max-sm:py-10">
-      <div className="flex max-w-[1400px] flex-col items-start gap-14 self-stretch relative px-6 py-0">
+    <section className="flex w-full flex-col items-start min-h-[483px] bg-[rgba(248,250,252,0.30)] px-64 py-20 lg:px-48 md:px-32 max-md:px-8 max-md:py-12 max-sm:px-4 max-sm:py-8">
+      <div className="flex max-w-[1400px] flex-col items-start gap-14 self-stretch relative px-6 py-0 max-md:gap-10 max-sm:gap-8 max-sm:px-2">
         <header className="flex flex-col items-center gap-3.5 self-stretch relative">
-          <h2 className="self-stretch text-[#1A1A1A] text-center text-2xl font-semibold leading-8 lg:text-xl lg:leading-7 max-sm:text-lg max-sm:leading-6">
+          <h2 className="self-stretch text-[#1A1A1A] text-center text-2xl font-semibold leading-8 lg:text-xl lg:leading-7 max-md:text-lg max-md:leading-6 max-sm:text-base max-sm:leading-5">
             Everything you need to grow your training business
           </h2>
           <div className="flex max-w-2xl flex-col items-center relative max-sm:w-full">
@@ -52,7 +52,7 @@ export const FeaturesSection: React.FC = () => {
           </div>
         </header>
         
-        <div className="flex justify-center items-start gap-[42px] self-stretch relative max-md:flex-col max-md:gap-8">
+        <div className="flex justify-center items-start gap-[42px] self-stretch relative max-md:flex-col max-md:gap-6 max-sm:gap-4">
           {features.map((feature, index) => (
             <article key={index} className="w-[425px] self-stretch relative flex flex-col items-center max-md:w-full">
               <div className="flex w-14 justify-center items-center relative h-14 bg-[rgba(37,99,235,0.10)] mb-[21px] px-0 py-3.5 rounded-[14px]">
