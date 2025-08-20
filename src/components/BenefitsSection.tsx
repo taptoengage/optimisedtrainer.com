@@ -69,9 +69,9 @@ export const BenefitsSection: React.FC = () => {
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/797d3a2b736de9e12e68288bb951d29e3b463cea?width=1302"
               alt="Professional personal trainer"
-              className="h-[280px] max-w-[651px] self-stretch relative object-cover rounded-[14px]"
+              className="w-full object-cover rounded-[14px] aspect-[16/9]"
             />
-            <div className="w-full h-[280px] absolute rounded-[14px] left-0 top-0 bg-gradient-to-r from-black/20 to-transparent" />
+            <div className="w-full h-full absolute rounded-[14px] left-0 top-0 bg-gradient-to-r from-black/20 to-transparent" />
           </div>
           
           <div className="flex flex-col items-start gap-3.5 self-stretch relative">
@@ -100,9 +100,9 @@ export const BenefitsSection: React.FC = () => {
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/f4044a7cae68fd2752a37eff955a9b24c1cadcc4?width=1302"
               alt="Client using fitness app"
-              className="h-[280px] max-w-[651px] self-stretch relative object-cover rounded-[14px]"
+              className="w-full object-cover rounded-[14px] aspect-[16/9]"
             />
-            <div className="w-full h-[280px] absolute rounded-[14px] left-0 top-0 bg-gradient-to-r from-black/20 to-transparent" />
+            <div className="w-full h-full absolute rounded-[14px] left-0 top-0 bg-gradient-to-r from-black/20 to-transparent" />
           </div>
           
           <div className="flex flex-col items-start gap-3.5 self-stretch relative">

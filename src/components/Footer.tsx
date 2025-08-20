@@ -15,23 +15,19 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="flex flex-col items-center gap-[84px] self-stretch w-full bg-[#1A1A1A] pt-[84px] max-md:pt-[60px]">
-      <div className="w-[1358px] h-[182px] relative max-w-full px-4">
-        <header className="flex w-full flex-col items-center absolute h-[21px] left-0 top-0">
-          <h2 className="text-white text-center text-2xl font-semibold leading-8">
+    <footer className="flex flex-col items-center w-full bg-[#1A1A1A] py-20 lg:py-16 max-md:py-12 max-sm:py-10">
+      {/* Hero signup section */}
+      <div className="flex flex-col items-center gap-8 w-full max-w-4xl px-6 mb-20 lg:mb-16 max-md:mb-12 max-sm:mb-10">
+        <header className="flex flex-col items-center gap-4 text-center">
+          <h2 className="text-white text-2xl font-semibold leading-8 lg:text-xl lg:leading-7 max-sm:text-lg max-sm:leading-6">
             Be the first to experience Optimised Trainer
           </h2>
+          <p className="text-[rgba(255,255,255,0.80)] text-base font-normal leading-relaxed max-w-2xl max-md:text-sm max-md:leading-6 max-sm:text-sm max-sm:leading-6">
+            Join our exclusive beta program and get early access to the platform that's revolutionizing how personal trainers run their business.
+          </p>
         </header>
         
-        <div className="flex w-[588px] max-w-full flex-col items-center absolute h-[49px] left-1/2 transform -translate-x-1/2 top-[42px] max-sm:w-full max-sm:relative max-sm:left-0 max-sm:transform-none">
-          <p className="text-[rgba(255,255,255,0.80)] text-center text-base font-normal leading-[24.5px]">
-            Join our exclusive beta program and get early access to the platform
-            <br />
-            that's revolutionizing how personal trainers run their business.
-          </p>
-        </div>
-        
-        <div className="flex w-[392px] items-start gap-[10.5px] absolute h-[39px] pt-[7px] left-1/2 transform -translate-x-1/2 top-28 max-sm:w-full max-sm:relative max-sm:left-0 max-sm:transform-none">
+        <div className="flex justify-center w-full max-w-md">
           <EmailSignupForm 
             variant="dark"
             buttonText="Join Beta"
@@ -40,28 +36,27 @@ export const Footer: React.FC = () => {
           />
         </div>
         
-        <div className="flex w-full flex-col items-center absolute h-[18px] left-0 top-[164px] max-sm:w-full max-sm:relative max-sm:left-0">
-          <p className="text-[rgba(255,255,255,0.60)] text-center text-[11px] font-normal leading-[17.5px]">
-            No spam, just updates on our progress and early access.
-          </p>
-        </div>
+        <p className="text-[rgba(255,255,255,0.60)] text-center text-sm font-normal leading-5 max-sm:text-xs">
+          No spam, just updates on our progress and early access.
+        </p>
       </div>
       
-      <div className="flex flex-col items-start self-stretch relative pt-[43px] pb-[42px] px-[260px] border-t-[rgba(255,255,255,0.20)] border-t border-solid max-md:px-10 max-md:py-8 max-sm:px-5 max-sm:py-6">
-        <div className="flex max-w-[1400px] flex-col items-start gap-7 self-stretch relative px-[21px] py-0">
-          <div className="flex justify-between items-center self-stretch relative max-sm:flex-col max-sm:gap-4 max-sm:items-start">
-            <div className="flex flex-col items-start relative">
-              <h3 className="text-white text-xl font-semibold leading-7 tracking-[-0.525px]">
+      {/* Footer navigation */}
+      <div className="flex flex-col w-full max-w-6xl px-6 pt-10 border-t border-[rgba(255,255,255,0.20)]">
+        <div className="flex flex-col gap-8">
+          <div className="flex justify-between items-center max-sm:flex-col max-sm:gap-6 max-sm:items-start">
+            <div className="flex flex-col">
+              <h3 className="text-white text-xl font-semibold leading-7 tracking-[-0.525px] lg:text-lg max-sm:text-base">
                 Optimised Trainer
               </h3>
             </div>
             
-            <nav className="flex items-center gap-7 relative max-sm:flex-wrap max-sm:gap-4">
+            <nav className="flex items-center gap-8 max-sm:flex-wrap max-sm:gap-4">
               {navLinks.map((link, index) => (
                 <button
                   key={index}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-[rgba(255,255,255,0.80)] hover:text-white text-xs font-normal leading-[17.5px] transition-colors cursor-pointer bg-transparent border-none"
+                  className="text-[rgba(255,255,255,0.80)] hover:text-white text-sm font-normal leading-5 transition-colors duration-200 cursor-pointer bg-transparent border-none focus:outline-none focus:text-white max-sm:text-xs"
                 >
                   {link.label}
                 </button>
@@ -69,12 +64,10 @@ export const Footer: React.FC = () => {
             </nav>
           </div>
           
-          <div className="flex flex-col items-start self-stretch relative pt-7 border-t-[rgba(255,255,255,0.20)] border-t border-solid">
-            <div className="flex flex-col items-center self-stretch relative">
-              <p className="self-stretch text-[rgba(255,255,255,0.60)] text-center text-[11px] font-normal leading-[17.5px]">
-                © 2025 Optimised Trainer. All rights reserved.
-              </p>
-            </div>
+          <div className="flex flex-col items-center pt-8 border-t border-[rgba(255,255,255,0.20)]">
+            <p className="text-[rgba(255,255,255,0.60)] text-center text-sm font-normal leading-5 max-sm:text-xs">
+              © 2025 Optimised Trainer. All rights reserved.
+            </p>
           </div>
         </div>
       </div>
