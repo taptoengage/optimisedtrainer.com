@@ -7,7 +7,7 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="flex w-full flex-col items-start h-[494px] pt-[84px] pb-[168px] px-[281px] relative max-md:pt-[60px] max-md:pb-[120px] max-md:px-10 max-sm:pt-10 max-sm:pb-20 max-sm:px-5">
+    <section className="hero-section flex w-full flex-col items-start h-[494px] pt-[84px] pb-[168px] px-[281px] relative max-md:pt-[60px] max-md:pb-[120px] max-md:px-10 max-sm:pt-10 max-sm:pb-20 max-sm:px-5">
       <div className="flex w-full h-[494px] flex-col items-start absolute top-0 inset-x-0">
         <img
           src="https://api.builder.io/api/v1/image/assets/TEMP/ce75efa29674fec23ce01cf60a76b9d7b6da49bf?width=3840"
@@ -19,7 +19,7 @@ export const HeroSection: React.FC = () => {
       
       <div className="flex flex-col items-start gap-[21px] self-stretch relative z-[1]">
         <header className="flex flex-col items-start self-stretch relative">
-          <h1 className="self-stretch text-[#1A1A1A] text-5xl font-semibold leading-[56px] max-md:text-4xl max-md:leading-[44px] max-sm:text-[28px] max-sm:leading-9">
+          <h1 className="self-stretch text-5xl font-semibold leading-[56px] max-md:text-4xl max-md:leading-[44px] max-sm:text-[28px] max-sm:leading-9">
             Train Smarter.
             <br />
             Run Your Business Better.
@@ -27,7 +27,7 @@ export const HeroSection: React.FC = () => {
         </header>
         
         <div className="flex w-[588px] max-w-[588px] flex-col items-start relative max-sm:w-full">
-          <p className="text-[#1A1A1A] text-base font-normal leading-[24.5px] max-md:text-sm max-md:leading-[22px]">
+          <p className="text-base font-normal leading-[24.5px] max-md:text-sm max-md:leading-[22px]">
             A complete client management system built for
             <br />
             independent personal trainers. Streamline scheduling,
