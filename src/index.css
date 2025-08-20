@@ -524,3 +524,52 @@ All colors MUST be HSL.
     text-shadow: 0 0 8px rgba(0, 0, 0, 1);
   }
 }
+
+/* URGENT FIX: Force white text in hero section with maximum specificity */
+@layer utilities {
+  /* Target all possible text elements in hero */
+  [class*="hero"] h1,
+  [class*="hero"] h2,
+  [class*="hero"] p,
+  [class*="hero"] span,
+  [class*="hero"] div,
+  section:first-of-type h1,
+  section:first-of-type h2, 
+  section:first-of-type p,
+  section:first-of-type span,
+  .hero-section *,
+  /* Target by position */
+  main > section:first-child h1,
+  main > section:first-child h2,
+  main > section:first-child p,
+  main > section:first-child span,
+  main > section:first-child div {
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+  }
+  
+  /* Nuclear option - target any text over background images */
+  section[style*="background-image"] *,
+  div[style*="background-image"] *,
+  [style*="background-image"] h1,
+  [style*="background-image"] h2,
+  [style*="background-image"] p,
+  [style*="background-image"] span {
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+  }
+}
+
+/* Backup: Override any Tailwind text color classes */
+.text-black,
+.text-gray-900,
+.text-gray-800,
+.text-slate-900 {
+  color: white !important;
+}
+
+/* Force white on any element with dark background */
+[class*="bg-"][class*="dark"] *,
+[style*="background"] * {
+  color: white !important;
+}
