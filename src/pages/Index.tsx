@@ -13,9 +13,7 @@ const Index = () => {
         <HeroSection />
         <FeaturesSection />
         
-        <div className="flex justify-center w-full px-6 lg:px-16 md:px-12 max-md:px-10 max-sm:px-5">
-          <ProductShowcase />
-        </div>
+        <ProductShowcase />
         
         <BenefitsSection />
         <MissionSection />
