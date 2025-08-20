@@ -21,7 +21,7 @@ export const ProductShowcase: React.FC = () => {
             alt="Optimised Trainer Dashboard"
             className="w-full h-full shrink-0 self-stretch object-cover rounded-lg"
           />
-          <div className="flex flex-col items-start gap-2.5 absolute backdrop-blur-sm bg-[rgba(255,255,255,0.90)] p-5 rounded-xl right-6 top-6 w-72 max-w-sm lg:w-64 md:w-56 max-md:w-48 max-sm:w-40 max-sm:p-3 max-sm:right-3 max-sm:top-3">
+          <div className="flex flex-col items-start gap-2.5 absolute backdrop-blur-sm bg-[rgba(255,255,255,0.90)] p-5 rounded-xl right-6 top-6 w-72 max-w-sm lg:w-64 md:w-56 max-md:w-48 max-sm:w-28 max-sm:p-3 max-sm:right-2 max-sm:top-3">
             <h3 className="text-[#1A1A1A] text-sm font-semibold leading-6 max-sm:text-xs max-sm:leading-5">
               Dashboard Overview
             </h3>
