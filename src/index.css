@@ -525,26 +525,8 @@ All colors MUST be HSL.
   }
 }
 
-/* PRECISE FIX: Target only the hero section text with hardcoded colors */
-@layer utilities {
-  /* Override the specific hardcoded text colors in hero section */
-  section:has(img[alt*="Personal trainer"]) h1.text-\\[\\#1A1A1A\\],
-  section:has(img[alt*="Personal trainer"]) p.text-\\[\\#1A1A1A\\],
-  section:has(img[alt*="Personal trainer"]) span.text-\\[\\#1A1A1A\\] {
-    color: white !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
-  }
-  
-  /* Alternative approach - target by structure */
-  section[class*="h-\\[494px\\]"] h1,
-  section[class*="h-\\[494px\\]"] p {
-    color: white !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
-  }
-  
-  /* Most specific - target the exact text elements */
-  .text-\\[\\#1A1A1A\\] {
-    color: white !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
-  }
+/* Simple fix: Override any hardcoded dark text in sections with background images */
+section:has(img) .text-\\[\\#1A1A1A\\] {
+  color: white !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
 }
