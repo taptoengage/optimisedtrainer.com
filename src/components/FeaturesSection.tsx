@@ -39,7 +39,7 @@ export const FeaturesSection: React.FC = () => {
   ];
 
   return (
-    <section className="flex w-full flex-col items-start h-[483px] bg-[rgba(248,250,252,0.30)] px-64 py-20 lg:px-48 md:px-32 max-md:px-10 max-md:py-16 max-sm:px-5 max-sm:py-10">
+    <section className="flex w-full flex-col items-start min-h-[483px] bg-[rgba(248,250,252,0.30)] px-64 py-20 lg:px-48 md:px-32 max-md:px-10 max-md:py-16 max-sm:px-5 max-sm:py-10">
       <div className="flex max-w-[1400px] flex-col items-start gap-14 self-stretch relative px-6 py-0">
         <header className="flex flex-col items-center gap-3.5 self-stretch relative">
           <h2 className="self-stretch text-[#1A1A1A] text-center text-2xl font-semibold leading-8 lg:text-xl lg:leading-7 max-sm:text-lg max-sm:leading-6">
