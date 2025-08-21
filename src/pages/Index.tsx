@@ -8,8 +8,8 @@ import { Footer } from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="flex w-full flex-col items-center bg-white">
-      <main className="flex flex-col w-full">
+    <div className="flex w-full flex-col items-center bg-white overflow-x-hidden max-w-full">
+      <main className="flex flex-col w-full overflow-x-hidden max-w-full">
         <HeroSection />
         <FeaturesSection />
         
