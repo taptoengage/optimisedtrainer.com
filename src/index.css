@@ -176,7 +176,7 @@ All colors MUST be HSL.
   .hero-section h1,
   .hero-section .hero-title,
   .hero-section [class*="text-"] h1 {
-    color: #ffffff !important;
+    color: #ffffff;
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.025em;
@@ -188,7 +188,7 @@ All colors MUST be HSL.
   .hero-section p,
   .hero-section .hero-description,
   .hero-section [class*="text-"] p {
-    color: rgba(255, 255, 255, 0.95) !important;
+    color: rgba(255, 255, 255, 0.95);
     font-size: clamp(1.125rem, 2.5vw, 1.375rem);
     line-height: 1.7;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);

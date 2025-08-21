@@ -7,7 +7,7 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="flex w-full flex-col items-start h-[494px] pt-20 pb-42 px-72 relative lg:px-60 md:pt-16 md:pb-32 md:px-40 max-md:pt-12 max-md:pb-24 max-md:px-10 max-sm:pt-10 max-sm:pb-20 max-sm:px-5">
+    <section className="flex w-full flex-col items-start h-[494px] pt-20 pb-42 px-4 relative sm:px-6 md:px-8 lg:px-12 xl:px-16 md:pt-16 md:pb-32 max-md:pt-12 max-md:pb-24 max-sm:pt-10 max-sm:pb-20">
       <div className="flex w-full h-[494px] flex-col items-start absolute top-0 inset-x-0">
         <img
           src="https://api.builder.io/api/v1/image/assets/TEMP/ce75efa29674fec23ce01cf60a76b9d7b6da49bf?width=3840"
