@@ -11,13 +11,23 @@ const Index = () => {
     <div className="flex w-full flex-col items-center bg-white overflow-x-hidden max-w-full">
       <main className="flex flex-col w-full overflow-x-hidden max-w-full">
         <HeroSection />
-        <FeaturesSection />
+        <div className="hidden">
+          <FeaturesSection />
+        </div>
         
-        <ProductShowcase />
+        <div className="hidden">
+          <ProductShowcase />
+        </div>
         
-        <BenefitsSection />
-        <MissionSection />
-        <Footer />
+        <div className="hidden">
+          <BenefitsSection />
+        </div>
+        <div className="hidden">
+          <MissionSection />
+        </div>
+        <div className="hidden">
+          <Footer />
+        </div>
       </main>
     </div>
   );
