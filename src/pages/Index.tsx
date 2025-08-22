@@ -19,9 +19,9 @@ export default function Index() {
       />
 
       <BenefitsSection
-        trainerImage="/assets/trainer.jpg"
-        clientImage="https://api.builder.io/api/v1/image/assets/TEMP/f4044a7cae68fd2752a37eff955a9b24c1cadcc4?width=1302"
-      />
+  trainerImage="/assets/Ross_Does_Optimised_Trainer.JPG"
+  clientImage="https://api.builder.io/api/v1/image/assets/TEMP/f4044a7cae68fd2752a37eff955a9b24c1cadcc4?width=1302"
+/>
 
       <MissionSection />
       <EmailCtaSection />
