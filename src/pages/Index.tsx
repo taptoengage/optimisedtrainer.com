@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import ProductShowcase from "@/components/ProductShowcase";
 import BenefitsSection from "@/components/BenefitsSection";
+import MissionSection from "@/components/MissionSection";
 import Footer from "@/components/Footer";
 
 export default function Index() {
@@ -12,9 +13,10 @@ export default function Index() {
       <FeaturesSection />
       <ProductShowcase />
       <BenefitsSection
-        trainerImage="/assets/trainer.jpg"   // <- update to your actual paths
+        trainerImage="/assets/trainer.jpg"   // update to your actual asset paths
         clientImage="/assets/client.jpg"
       />
+      <MissionSection />
       <Footer />
     </main>
   );
