@@ -25,9 +25,7 @@ export default function ProductShowcase({
             Beautiful design meets powerful functionality
           </h2>
           <p className="mt-4 text-[#1A1A1A] text-base sm:text-lg leading-relaxed">
-            Intuitive interfaces designed specifically, 
-            <br className="hidden sm:block" />
-            for personal trainers and their clients.
+            Intuitive interfaces designed specifically for personal trainers and their clients.
           </p>
         </header>
 
