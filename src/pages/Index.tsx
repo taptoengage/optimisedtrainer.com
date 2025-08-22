@@ -10,11 +10,7 @@ import Footer from "@/components/Footer";
 export default function Index() {
   return (
     <main className="flex flex-col min-h-screen">
-      <HeroSection
-        backgroundUrl="https://source.unsplash.com/Hfc8VGI2ekU/2400x1200"
-        title="Train Smarter. Run Your Business Better."
-        subtitle="A complete client management system built for independent personal trainers. Streamline scheduling, payments, and client relationships in one elegant platform."
-      />
+      <HeroSection backgroundUrl="https://source.unsplash.com/Hfc8VGI2ekU/2400x1200" />
 
       <FeaturesSection />
 
@@ -28,9 +24,7 @@ export default function Index() {
       />
 
       <MissionSection />
-
       <EmailCtaSection />
-
       <Footer />
     </main>
   );
