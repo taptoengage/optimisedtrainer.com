@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 export default function Index() {
   return (
     <main className="flex flex-col min-h-screen">
-      <HeroSection backgroundUrl="https://source.unsplash.com/Hfc8VGI2ekU/2400x1200" />
+      <HeroSection backgroundUrl="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=2400&auto=format&fit=crop&q=80" />
 
       <FeaturesSection />
 
