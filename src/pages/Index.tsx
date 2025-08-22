@@ -19,7 +19,7 @@ export default function Index() {
       />
 
       <BenefitsSection
-        trainerImage="https://api.builder.io/api/v1/image/assets/TEMP/797d3a2b736de9e12e68288bb951d29e3b463cea?width=1302"
+        trainerImage="/assets/trainer.jpg"
         clientImage="https://api.builder.io/api/v1/image/assets/TEMP/f4044a7cae68fd2752a37eff955a9b24c1cadcc4?width=1302"
       />
 
