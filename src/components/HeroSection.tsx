@@ -15,28 +15,28 @@ export default function HeroSection({
         relative w-full
         min-h-[70vh] sm:min-h-[80vh] md:min-h-screen
         flex items-center
-        bg-neutral-900  /* fallback color if image fails */
+        bg-neutral-900
       "
       aria-label="Hero"
     >
-      {/* Background image as a layer (preferred over CSS background) */}
+      {/* Background image */}
       {imgOk && (
         <img
           src={backgroundUrl}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover z-0"
           loading="eager"
           decoding="async"
           onError={() => setImgOk(false)}
         />
       )}
 
-      {/* Overlay (keep translucent so image shows) */}
-      <div className="absolute inset-0 bg-black/55" />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/55 z-10" />
 
-      {/* Safe-area + content */}
-      <div className="relative z-10 w-full pt-[max(1rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))]">
+      {/* Content */}
+      <div className="relative z-20 w-full pt-[max(1rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))]">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl text-left">
             <h1 className="text-white font-extrabold leading-tight tracking-tight text-4xl sm:text-5xl md:text-6xl">
@@ -49,15 +49,21 @@ export default function HeroSection({
               Streamline scheduling, payments, and client relationships in one elegant platform.
             </p>
 
-            {/* Example CTA row (optional: remove if you already have one elsewhere) */}
-            {/* <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <a href="#features" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg">
-                Get Started
+            {/* CTA buttons */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <a
+                href="#join-beta"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg text-center"
+              >
+                Join the Beta
               </a>
-              <a href="#learn-more" className="bg-white/10 border border-white/30 text-white px-6 py-3 rounded-lg font-semibold backdrop-blur hover:bg-white/20">
-                Learn More
+              <a
+                href="#watch-demo"
+                className="bg-white/10 border border-white/30 text-white px-6 py-3 rounded-lg font-semibold backdrop-blur hover:bg-white/20 text-center"
+              >
+                Watch Demo
               </a>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
