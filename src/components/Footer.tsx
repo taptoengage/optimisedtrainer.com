@@ -1,50 +1,45 @@
 import React from "react";
 
 export default function Footer() {
+  const links = [
+    { label: "Features", href: "#" },
+    { label: "Product", href: "#" },
+    { label: "About", href: "#" },
+    { label: "Privacy", href: "#" },
+    { label: "Terms", href: "#" },
+  ];
+
   return (
-    <footer className="w-full bg-gray-900 text-gray-200 py-12">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <div>
-            <h2 className="text-lg font-semibold text-white mb-4">Company</h2>
-            <ul className="space-y-2">
-              <li><a href="#" className="hover:text-white">About Us</a></li>
-              <li><a href="#" className="hover:text-white">Careers</a></li>
-              <li><a href="#" className="hover:text-white">Blog</a></li>
-            </ul>
+    <footer className="w-full bg-[#111] text-gray-200">
+      {/* subtle divider above footer */}
+      <div className="border-t border-white/10" />
+
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        {/* Brand + nav pills */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div className="text-xl font-semibold text-white">
+            Optimised Trainer
           </div>
 
-          <div>
-            <h2 className="text-lg font-semibold text-white mb-4">Product</h2>
-            <ul className="space-y-2">
-              <li><a href="#" className="hover:text-white">Features</a></li>
-              <li><a href="#" className="hover:text-white">Pricing</a></li>
-              <li><a href="#" className="hover:text-white">Integrations</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-lg font-semibold text-white mb-4">Resources</h2>
-            <ul className="space-y-2">
-              <li><a href="#" className="hover:text-white">Help Center</a></li>
-              <li><a href="#" className="hover:text-white">Guides</a></li>
-              <li><a href="#" className="hover:text-white">API Docs</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-lg font-semibold text-white mb-4">Follow Us</h2>
-            <div className="flex space-x-4">
-              <a href="#" className="hover:text-white">Twitter</a>
-              <a href="#" className="hover:text-white">LinkedIn</a>
-              <a href="#" className="hover:text-white">Instagram</a>
-            </div>
-          </div>
+          <nav className="flex flex-wrap items-center gap-4 sm:gap-6">
+            {links.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                className="px-6 py-3 rounded-xl border border-white/25 text-gray-100 hover:bg-white/10 transition"
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
         </div>
 
-        <div className="mt-12 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
-          © {new Date().getFullYear()} Your Company. All rights reserved.
-        </div>
+        {/* thin rule then copyright */}
+        <hr className="mt-8 mb-6 border-white/10" />
+
+        <p className="text-center text-sm text-gray-400">
+          © {new Date().getFullYear()} Optimised Trainer. All rights reserved.
+        </p>
       </div>
     </footer>
   );
