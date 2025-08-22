@@ -1,50 +1,30 @@
-import React from 'react';
-import { EmailSignupForm } from './EmailSignupForm';
+import React from "react";
 
-export const HeroSection: React.FC = () => {
-  const handleWatchDemo = () => {
-    console.log('Watch demo clicked');
-  };
-
+export default function HeroSection() {
   return (
-    <section className="flex w-full flex-col items-start h-[494px] pt-20 pb-42 px-4 relative sm:px-6 md:px-8 lg:px-12 xl:px-16 md:pt-16 md:pb-32 max-md:pt-12 max-md:pb-24 max-sm:pt-10 max-sm:pb-20">
-      <div className="flex w-full h-[494px] flex-col items-start absolute top-0 inset-x-0">
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/ce75efa29674fec23ce01cf60a76b9d7b6da49bf?width=3840"
-          alt="Personal trainer working with client"
-          className="h-[493.5px] w-full shrink-0 self-stretch relative object-cover"
-        />
-        <div className="w-full h-[493.5px] absolute left-0 top-0 bg-gradient-to-r from-black/20 to-transparent" />
-      </div>
+    <section className="relative w-full min-h-screen bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: "url('/path-to-your-hero.jpg')" }}>
       
-      <div className="hero-text-white flex flex-col items-start gap-6 self-stretch relative z-[1]">
-        <header className="flex flex-col items-start self-stretch relative">
-          <h1 className="self-stretch text-5xl font-semibold leading-[56px] lg:text-4xl lg:leading-[48px] md:text-4xl md:leading-[44px] max-md:text-3xl max-md:leading-10 max-sm:text-[28px] max-sm:leading-9">
-            Train Smarter. Run Your Business Better.
-          </h1>
-        </header>
-        
-        <div className="flex max-w-xl flex-col items-start relative max-sm:w-full">
-          <p className="text-base font-normal leading-relaxed md:text-base md:leading-6 max-md:text-sm max-md:leading-6 max-sm:text-sm max-sm:leading-6">
-            A complete client management system built for independent personal trainers. Streamline scheduling, payments, and client relationships in one elegant platform.
-          </p>
-        </div>
-        
-        <div className="flex items-start gap-3.5 self-stretch relative pt-2 max-sm:flex-col max-sm:gap-3">
-          <EmailSignupForm 
-            buttonText="Join the Beta"
-            className="flex items-start gap-3.5"
-          />
-          <button
-            onClick={handleWatchDemo}
-            className="flex h-11 min-h-11 justify-center items-center border border-slate-200 relative cursor-pointer bg-white hover:bg-gray-50 hover:border-slate-300 hover:shadow-md px-8 py-2 rounded-md border-solid max-sm:w-full max-sm:justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 active:scale-95 active:transition-transform"
-          >
-            <span className="text-[#1A1A1A] text-center text-sm font-medium leading-5">
-              Watch Demo
-            </span>
-          </button>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50"></div>
+
+      {/* Content */}
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-2xl">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+          Welcome to Our Product
+        </h1>
+        <p className="text-lg sm:text-xl text-gray-200 mb-8">
+          A short value proposition goes here — no more horizontal scroll.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#features" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg">
+            Get Started
+          </a>
+          <a href="#learn-more" className="bg-white/10 border border-white/30 text-white px-6 py-3 rounded-lg font-semibold backdrop-blur hover:bg-white/20">
+            Learn More
+          </a>
         </div>
       </div>
     </section>
   );
-};
+}
