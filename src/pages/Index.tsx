@@ -1,10 +1,10 @@
 import React from 'react';
-import { HeroSection } from '@/components/HeroSection';
-import { FeaturesSection } from '@/components/FeaturesSection';
+import HeroSection from '@/components/HeroSection';
+import FeaturesSection from '@/components/FeaturesSection';
 import { ProductShowcase } from '@/components/ProductShowcase';
 import { BenefitsSection } from '@/components/BenefitsSection';
 import { MissionSection } from '@/components/MissionSection';
-import { Footer } from '@/components/Footer';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
