@@ -4,6 +4,7 @@ import FeaturesSection from "@/components/FeaturesSection";
 import ProductShowcase from "@/components/ProductShowcase";
 import BenefitsSection from "@/components/BenefitsSection";
 import MissionSection from "@/components/MissionSection";
+import EmailCtaSection from "@/components/EmailCtaSection"; // <- new
 import Footer from "@/components/Footer";
 
 export default function Index() {
@@ -13,10 +14,11 @@ export default function Index() {
       <FeaturesSection />
       <ProductShowcase />
       <BenefitsSection
-        trainerImage="/assets/trainer.jpg"   // update to your actual asset paths
+        trainerImage="/assets/trainer.jpg"
         clientImage="/assets/client.jpg"
       />
       <MissionSection />
+      <EmailCtaSection />   {/* <- email signup band */}
       <Footer />
     </main>
   );
