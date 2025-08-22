@@ -1,67 +1,98 @@
-import React from 'react';
+import React from "react";
 
-export const ProductShowcase: React.FC = () => {
+type ProductShowcaseProps = {
+  imageUrl?: string; // dashboard/tablet image
+  alt?: string;
+};
+
+export default function ProductShowcase({
+  imageUrl = "/assets/dashboard.png", // replace with your image path
+  alt = "Optimised Trainer Dashboard",
+}: ProductShowcaseProps) {
+  const bullets = [
+    "Daily appointment tracking",
+    "Revenue analytics",
+    "Clients running low on their pack quota",
+    "Payment status",
+  ];
+
   return (
-    <section className="flex flex-col justify-center items-center gap-14 w-full px-72 lg:px-60 md:px-40 max-md:px-10 max-sm:px-5 py-16 lg:py-20 border-2 border-red-500">
-      <div className="flex flex-col items-center gap-14 w-full">
-        <header className="flex flex-col items-center gap-3.5 w-full">
-          <h2 className="text-[#1A1A1A] text-center text-2xl font-semibold leading-8 lg:text-xl lg:leading-7 max-sm:text-lg max-sm:leading-6">
+    <section className="w-full py-16 lg:py-20 bg-white">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <header className="text-center max-w-3xl mx-auto">
+          <h2 className="text-[#1A1A1A] text-3xl sm:text-4xl font-semibold leading-tight">
             Beautiful design meets powerful functionality
           </h2>
-          <div className="flex max-w-2xl flex-col items-center relative max-sm:w-full">
-            <p className="text-[#1A1A1A] text-center text-base font-normal leading-relaxed max-md:text-sm max-md:leading-6 max-sm:text-sm max-sm:leading-6">
-              Intuitive interfaces designed specifically for personal trainers and their clients.
-            </p>
-          </div>
+          <p className="mt-4 text-[#1A1A1A] text-base sm:text-lg leading-relaxed">
+            Intuitive interfaces designed specifically
+            <br className="hidden sm:block" />
+            for personal trainers and their clients.
+          </p>
         </header>
-        
-        <div className="flex flex-col items-start shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] relative w-full p-7 rounded-[14px] max-md:p-5 h-[400px] lg:h-[350px] md:h-[300px] max-md:h-[250px] max-sm:h-[200px]">
-          <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/05ec04a4a985abd486ca0010617f6130c2f10fc4?width=1680"
-            alt="Optimised Trainer Dashboard"
-            className="w-full h-full shrink-0 self-stretch object-cover rounded-lg"
-          />
-          <div className="flex flex-col items-start gap-2.5 absolute backdrop-blur-sm bg-[rgba(255,255,255,0.90)] p-5 rounded-xl right-6 top-6 w-72 max-w-sm lg:w-64 md:w-56 max-md:w-48 max-sm:w-28 max-sm:p-3 max-sm:right-2 max-sm:top-3">
-            <h3 className="text-[#1A1A1A] text-sm font-semibold leading-6 max-sm:text-xs max-sm:leading-5">
+
+        {/* Image + overlay */}
+        <div className="mt-10 sm:mt-12">
+          <div className="relative rounded-2xl bg-white p-4 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)]">
+            {/* Image frame */}
+            <div className="overflow-hidden rounded-xl">
+              <img
+                src={imageUrl}
+                alt={alt}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+
+            {/* Overlay card: absolute on sm+, stacked on mobile */}
+            <div className="hidden sm:flex flex-col gap-2.5 absolute right-6 top-6 w-72 lg:w-64 md:w-56 bg-white/90 backdrop-blur-sm p-5 rounded-xl shadow border border-slate-200">
+              <h3 className="text-[#1A1A1A] text-sm font-semibold leading-6">
+                Dashboard Overview
+              </h3>
+              <ul className="flex flex-col gap-1.5 text-slate-500 text-sm leading-5 list-none">
+                {bullets.map((b, i) => (
+                  <li key={i}>• {b}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Mobile overlay (readable, no overflow) */}
+          <div className="sm:hidden mt-4 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow border border-slate-200">
+            <h3 className="text-[#1A1A1A] text-sm font-semibold leading-6">
               Dashboard Overview
             </h3>
-            <ul className="flex flex-col items-start gap-1.5 w-full list-none">
-              <li className="text-slate-500 text-sm font-normal leading-5">
-                • Daily appointment tracking
-              </li>
-              <li className="text-slate-500 text-sm font-normal leading-5">
-                • Revenue analytics
-              </li>
-              <li className="text-slate-500 text-sm font-normal leading-5">
-                • Clients running low on their pack quota
-              </li>
-              <li className="text-slate-500 text-sm font-normal leading-5">
-                • Payment status
-              </li>
+            <ul className="mt-2 flex flex-col gap-1.5 text-slate-500 text-sm leading-5 list-none">
+              {bullets.map((b, i) => (
+                <li key={i}>• {b}</li>
+              ))}
             </ul>
           </div>
         </div>
-        
-        <div className="flex justify-center items-start gap-7 w-full max-md:flex-col max-md:gap-6">
-          <article className="flex flex-col items-start gap-2.5 flex-1 border bg-white p-8 rounded-xl border-solid border-[rgba(226,232,240,0.50)] hover:shadow-md transition-shadow duration-200 max-md:p-6">
-            <h3 className="text-[#1A1A1A] text-lg font-semibold leading-6 max-sm:text-base">
+
+        {/* For Trainers / For Clients */}
+        <div className="mt-10 sm:mt-12 grid gap-7 md:grid-cols-2">
+          <article className="flex flex-col gap-2.5 rounded-xl border border-[rgba(226,232,240,0.50)] bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+            <h3 className="text-[#1A1A1A] text-lg font-semibold leading-6">
               For Trainers
             </h3>
-            <p className="text-slate-500 text-sm font-normal leading-6">
-              Comprehensive business management with scheduling, payment processing, client communication, and progress tracking — all in one place.
+            <p className="text-slate-500 text-sm leading-6">
+              Comprehensive business management with scheduling, payment
+              processing, client communication, and progress tracking — all in
+              one place.
             </p>
           </article>
-          
-          <article className="flex flex-col items-start gap-2.5 flex-1 border bg-white p-8 rounded-xl border-solid border-[rgba(226,232,240,0.50)] hover:shadow-md transition-shadow duration-200 max-md:p-6">
-            <h3 className="text-[#1A1A1A] text-lg font-semibold leading-6 max-sm:text-base">
+
+          <article className="flex flex-col gap-2.5 rounded-xl border border-[rgba(226,232,240,0.50)] bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+            <h3 className="text-[#1A1A1A] text-lg font-semibold leading-6">
               For Clients
             </h3>
-            <p className="text-slate-500 text-sm font-normal leading-6">
-              Simple booking interface, secure payments, workout tracking, and direct communication with their trainer.
+            <p className="text-slate-500 text-sm leading-6">
+              Simple booking interface, secure payments, workout tracking, and
+              direct communication with their trainer.
             </p>
           </article>
         </div>
       </div>
     </section>
   );
-};
+}
