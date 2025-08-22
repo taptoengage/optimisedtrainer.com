@@ -1,61 +1,53 @@
-import React from 'react';
+import React from "react";
 
-export const MissionSection: React.FC = () => {
+export default function MissionSection() {
   const values = [
     {
-      emoji: '🎯',
-      title: 'Our Mission',
-      description: 'Simplify business management so trainers can focus on their passion — helping clients achieve their goals.'
+      emoji: "🎯",
+      title: "Our Mission",
+      description:
+        "Simplify business management so trainers can focus on their passion — helping clients achieve their goals.",
     },
     {
-      emoji: '💡',
-      title: 'Our Vision',
-      description: 'A world where every independent trainer has the tools to build a thriving, sustainable business.'
+      emoji: "💡",
+      title: "Our Vision",
+      description:
+        "A world where every independent trainer has the tools to build a thriving, sustainable business.",
     },
     {
-      emoji: '🤝',
-      title: 'Our Values',
-      description: 'Simplicity, reliability, and genuine care for the fitness community that drives everything we do.'
-    }
+      emoji: "🤝",
+      title: "Our Values",
+      description:
+        "Simplicity, reliability, and genuine care for the fitness community that drives everything we do.",
+    },
   ];
 
   return (
-    <section className="flex w-full flex-col items-start min-h-[470px] bg-[rgba(248,250,252,0.30)] px-72 py-20 lg:px-60 md:px-40 max-md:px-10 max-sm:px-5 border-2 border-red-500">
-      <div className="flex flex-col items-start gap-7 self-stretch relative max-sm:gap-5">
-        <header className="flex flex-col items-center self-stretch relative">
-          <h2 className="self-stretch text-[#1A1A1A] text-center text-2xl font-semibold leading-8 lg:text-xl lg:leading-7 max-sm:text-lg max-sm:leading-6">
+    <section className="w-full bg-slate-50/30 py-16 lg:py-20">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Heading + lead */}
+        <header className="text-center max-w-4xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#1A1A1A]">
             Empowering independent trainers, not just big gyms
           </h2>
-        </header>
-        
-        <div className="flex flex-col items-center self-stretch relative max-sm:w-full">
-          <p className="self-stretch text-[#1A1A1A] text-center text-base font-normal leading-relaxed max-md:text-sm max-md:leading-6 max-sm:text-sm max-sm:leading-6">
-            We believe personal trainers should have access to the same powerful tools as large fitness chains. That's why we built Optimised Trainer — to level the playing field and help independent trainers focus on what they do best: transforming lives through fitness.
+          <p className="mt-6 text-base sm:text-lg leading-relaxed text-[#1A1A1A]">
+            We believe personal trainers should have access to the same powerful tools as large
+            fitness chains. That's why we built Optimised Trainer — to level the playing field and
+            help independent trainers focus on what they do best: transforming lives through fitness.
           </p>
-        </div>
-        
-        <div className="flex justify-center items-start gap-7 self-stretch relative pt-7 max-md:flex-col max-md:gap-6 max-sm:gap-4 max-sm:pt-4">
-          {values.map((value, index) => (
-            <article key={index} className="flex-1 self-stretch relative flex flex-col items-center max-md:w-full">
-              <div className="flex flex-col items-center relative mb-2">
-                <span className="text-[#1A1A1A] text-center text-2xl font-normal leading-[31.5px]">
-                  {value.emoji}
-                </span>
-              </div>
-              <h3 className="flex flex-col items-center relative mb-[5px]">
-                <span className="text-[#1A1A1A] text-center text-[17px] font-semibold leading-[24.5px]">
-                  {value.title}
-                </span>
-              </h3>
-              <div className="flex flex-col items-center relative">
-                <p className="text-slate-500 text-center text-sm font-normal leading-6 max-sm:text-sm max-sm:leading-6">
-                  {value.description}
-                </p>
-              </div>
+        </header>
+
+        {/* Value tiles */}
+        <div className="mt-12 grid gap-10 sm:gap-12 sm:grid-cols-3">
+          {values.map((v, i) => (
+            <article key={i} className="text-center max-w-md mx-auto">
+              <div className="text-3xl leading-none mb-3">{v.emoji}</div>
+              <h3 className="text-lg font-semibold text-[#1A1A1A]">{v.title}</h3>
+              <p className="mt-3 text-slate-500 text-sm leading-6">{v.description}</p>
             </article>
           ))}
         </div>
       </div>
     </section>
   );
-};
+}
