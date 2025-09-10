@@ -975,14 +975,17 @@ export type Database = {
     }
     Functions: {
       add_to_waitlist: {
-        Args: {
-          p_email: string
-          p_ip_address?: string
-          p_metadata?: Json
-          p_referrer?: string
-          p_source?: string
-          p_user_agent?: string
-        }
+        Args:
+          | {
+              p_current_activity_level?: string
+              p_email: string
+              p_first_name?: string
+              p_fitness_goals?: string
+              p_last_name?: string
+              p_phone?: string
+              p_preferred_contact_method?: string
+            }
+          | { p_email: string; p_metadata?: Json; p_source?: string }
         Returns: {
           created_at: string
           duplicate: boolean
