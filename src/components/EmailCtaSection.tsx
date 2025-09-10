@@ -1,5 +1,5 @@
 import React from "react";
-import { EmailSignupForm } from "@/components/EmailSignupForm";
+import { Link } from "react-router-dom";
 
 export default function EmailCtaSection() {
   return (
@@ -16,13 +16,14 @@ export default function EmailCtaSection() {
           </p>
 
           <div className="mt-6 flex justify-center">
-            {/* Use the dark variant to match the screenshot */}
-            <EmailSignupForm
-              variant="dark"
-              buttonText="Join Beta"
-              placeholder="Enter your email"
-              className="w-full max-w-xl"
-            />
+            <Link 
+              to="/signup"
+              className="flex h-11 min-h-11 justify-center items-center relative cursor-pointer bg-blue-600 hover:bg-blue-700 hover:shadow-md px-8 py-2 rounded-md border-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 active:transition-transform"
+            >
+              <span className="text-white text-center text-sm font-medium leading-5">
+                Get Full Details & Join Beta
+              </span>
+            </Link>
           </div>
 
           <p className="mt-3 text-xs text-gray-400">
