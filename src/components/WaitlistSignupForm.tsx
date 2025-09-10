@@ -63,33 +63,20 @@ export const WaitlistSignupForm: React.FC<WaitlistSignupFormProps> = ({
     setErrorMessage('');
     
     try {
-      // Use secure function that respects RLS policies
+      // Simple function call - one parameter only
       const { data, error } = await supabase.rpc('add_to_waitlist', {
-        p_email: formData.email,
-        p_source: 'signup_page',
-        p_metadata: {
-          fullName: formData.fullName,
-          role: formData.role,
-          experienceYears: formData.experienceYears,
-          clientBaseSize: formData.clientBaseSize,
-          biggestChallenge: formData.biggestChallenge,
-          phoneNumber: formData.phoneNumber || null,
-          submittedAt: new Date().toISOString()
-        }
-      });
+        email_input: formData.email
+      } as any); // Cast to any since types haven't been regenerated yet
 
       if (error) {
+        console.error('Signup error:', error);
         throw error;
-      } else if (data && Array.isArray(data) && data[0]) {
-        const result = data[0];
-        if (result.duplicate) {
-          setSubmitStatus('success');
-          setErrorMessage("You're already on our waitlist! We'll be in touch soon.");
-        } else {
-          setSubmitStatus('success');
-          onSuccess?.();
-        }
+      } else if ((data as any)?.error) {
+        console.error('Function error:', (data as any).error);
+        setErrorMessage((data as any).error);
+        setSubmitStatus('error');
       } else {
+        console.log('Success!');
         setSubmitStatus('success');
         onSuccess?.();
       }
