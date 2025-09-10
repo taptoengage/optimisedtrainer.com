@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { WaitlistSignupForm } from '@/components/WaitlistSignupForm';
+import { ROICalculator } from '@/components/ROICalculator';
 import { ArrowLeft, CheckCircle, Users, Zap, TrendingUp, Calendar } from 'lucide-react';
 
 export default function Signup() {
@@ -95,59 +96,8 @@ export default function Signup() {
         </div>
       </section>
 
-      {/* Cost Benefits Section */}
-      <section className="w-full bg-[#111] py-14 sm:py-16">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                The ROI is <span className="text-green-400">Undeniable</span>
-              </h2>
-              <p className="text-xl text-gray-300">
-                See how Optimised Trainer pays for itself within the first month
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-8 mb-4">
-                  <div className="text-3xl font-bold text-white mb-2">12+ Hours</div>
-                  <div className="text-blue-100 text-sm">Saved per week</div>
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Time Optimization</h3>
-                <p className="text-gray-300 text-sm">
-                  Automate scheduling, client communications, and administrative tasks. 
-                  Spend more time training, less time on paperwork.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-8 mb-4">
-                  <div className="text-3xl font-bold text-white mb-2">25% More</div>
-                  <div className="text-green-100 text-sm">Revenue increase</div>
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Client Retention</h3>
-                <p className="text-gray-300 text-sm">
-                  Better client experience leads to longer relationships. 
-                  Our analytics help you identify and retain your best clients.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-2xl p-8 mb-4">
-                  <div className="text-3xl font-bold text-white mb-2">$2,400</div>
-                  <div className="text-purple-100 text-sm">Extra monthly revenue</div>
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Business Growth</h3>
-                <p className="text-gray-300 text-sm">
-                  Scale beyond 1-on-1 training with group programs, online coaching, 
-                  and automated systems that work while you sleep.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ROI Calculator Section - Replaces the old Cost Benefits Section */}
+      <ROICalculator />
 
       {/* Origin Story Section */}
       <section className="w-full bg-gray-900 py-14 sm:py-16">
