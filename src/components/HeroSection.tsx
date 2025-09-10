@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 type HeroSectionProps = {
   backgroundUrl?: string;
@@ -51,12 +52,12 @@ export default function HeroSection({
 
             {/* CTA buttons */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <a
-                href="#join-beta"
+              <Link
+                to="/signup"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg text-center"
               >
                 Join the Beta
-              </a>
+              </Link>
               <a
                 href="#watch-demo"
                 className="bg-white/10 border border-white/30 text-white px-6 py-3 rounded-lg font-semibold backdrop-blur hover:bg-white/20 text-center"

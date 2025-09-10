@@ -18,16 +18,14 @@ export default function EmailCtaSection() {
           <div className="mt-6 flex justify-center">
             <Link 
               to="/signup"
-              className="flex h-11 min-h-11 justify-center items-center relative cursor-pointer bg-blue-600 hover:bg-blue-700 hover:shadow-md px-8 py-2 rounded-md border-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 active:transition-transform"
+              className="inline-flex h-11 min-h-11 justify-center items-center bg-blue-600 hover:bg-blue-700 hover:shadow-md px-8 py-3 rounded-md text-white text-center text-base font-medium leading-5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95"
             >
-              <span className="text-white text-center text-sm font-medium leading-5">
-                Get Full Details & Join Beta
-              </span>
+              Get Full Details & Join Beta
             </Link>
           </div>
 
           <p className="mt-3 text-xs text-gray-400">
-            No spam, just updates on our progress and early access.
+            Learn more about features, see cost benefits, and join our waitlist.
           </p>
         </div>
       </div>
