@@ -63,29 +63,31 @@ export const WaitlistSignupForm: React.FC<WaitlistSignupFormProps> = ({
     setErrorMessage('');
     
     try {
-      const { data, error } = await supabase
-        .from('waitlist_signups')
-        .insert([{
-          email: formData.email,
-          source: 'signup_page',
-          metadata: {
-            fullName: formData.fullName,
-            role: formData.role,
-            experienceYears: formData.experienceYears,
-            clientBaseSize: formData.clientBaseSize,
-            biggestChallenge: formData.biggestChallenge,
-            phoneNumber: formData.phoneNumber || null,
-            submittedAt: new Date().toISOString()
-          }
-        }])
-        .select();
+      // Use secure function that respects RLS policies
+      const { data, error } = await supabase.rpc('add_to_waitlist', {
+        p_email: formData.email,
+        p_source: 'signup_page',
+        p_metadata: {
+          fullName: formData.fullName,
+          role: formData.role,
+          experienceYears: formData.experienceYears,
+          clientBaseSize: formData.clientBaseSize,
+          biggestChallenge: formData.biggestChallenge,
+          phoneNumber: formData.phoneNumber || null,
+          submittedAt: new Date().toISOString()
+        }
+      });
 
       if (error) {
-        if (error.message.includes('duplicate') || error.code === '23505') {
+        throw error;
+      } else if (data && Array.isArray(data) && data[0]) {
+        const result = data[0];
+        if (result.duplicate) {
           setSubmitStatus('success');
           setErrorMessage("You're already on our waitlist! We'll be in touch soon.");
         } else {
-          throw error;
+          setSubmitStatus('success');
+          onSuccess?.();
         }
       } else {
         setSubmitStatus('success');
