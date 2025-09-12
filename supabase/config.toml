@@ -1,1 +1,4 @@
 project_id = "rjislxmkntaunloeqdzx"
+
+[functions.waitlist-intake]
+verify_jwt = false

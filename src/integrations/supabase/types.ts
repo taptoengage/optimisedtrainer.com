@@ -353,6 +353,39 @@ export type Database = {
           },
         ]
       }
+      security_rate_limits: {
+        Row: {
+          bucket: string
+          count: number
+          created_at: string | null
+          id: string
+          rate_key: string
+          updated_at: string | null
+          window_end: string
+          window_start: string
+        }
+        Insert: {
+          bucket: string
+          count?: number
+          created_at?: string | null
+          id?: string
+          rate_key: string
+          updated_at?: string | null
+          window_end: string
+          window_start?: string
+        }
+        Update: {
+          bucket?: string
+          count?: number
+          created_at?: string | null
+          id?: string
+          rate_key?: string
+          updated_at?: string | null
+          window_end?: string
+          window_start?: string
+        }
+        Relationships: []
+      }
       service_types: {
         Row: {
           created_at: string
@@ -975,23 +1008,8 @@ export type Database = {
     }
     Functions: {
       add_to_waitlist: {
-        Args:
-          | {
-              p_current_activity_level?: string
-              p_email: string
-              p_first_name?: string
-              p_fitness_goals?: string
-              p_last_name?: string
-              p_phone?: string
-              p_preferred_contact_method?: string
-            }
-          | { p_email: string; p_metadata?: Json; p_source?: string }
-        Returns: {
-          created_at: string
-          duplicate: boolean
-          email: string
-          id: string
-        }[]
+        Args: { email_input: string }
+        Returns: Json
       }
       decrement_pack_sessions: {
         Args: {

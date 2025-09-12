@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { supabase } from '@/integrations/supabase/client';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 interface WaitlistSignupData {
   email: string;
@@ -32,6 +33,8 @@ export const WaitlistSignupForm: React.FC<WaitlistSignupFormProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [captchaToken, setCaptchaToken] = useState<string>('');
+  const captchaRef = useRef<HCaptcha>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -57,33 +60,59 @@ export const WaitlistSignupForm: React.FC<WaitlistSignupFormProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!validateForm()) return;
-    
+    if (!validateForm()) {
+      return;
+    }
+
+    if (!captchaToken) {
+      setErrorMessage('Please complete the captcha verification.');
+      setSubmitStatus('error');
+      return;
+    }
+
     setIsSubmitting(true);
+    setSubmitStatus('idle');
     setErrorMessage('');
     
     try {
-      // Simple function call - one parameter only
-      const { data, error } = await supabase.rpc('add_to_waitlist', {
-        email_input: formData.email
-      } as any); // Cast to any since types haven't been regenerated yet
+      // Call the new hardened Edge Function
+      const response = await fetch(`https://rjislxmkntaunloeqdzx.supabase.co/functions/v1/waitlist-intake`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          token: captchaToken
+        })
+      });
 
-      if (error) {
-        console.error('Signup error:', error);
-        throw error;
-      } else if ((data as any)?.error) {
-        console.error('Function error:', (data as any).error);
-        setErrorMessage((data as any).error);
-        setSubmitStatus('error');
-      } else {
-        console.log('Success!');
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit');
+      }
+
+      if (result.status === 'duplicate') {
+        setSubmitStatus('success');
+        setErrorMessage("You're already on our waitlist! We'll be in touch soon.");
+      } else if (result.status === 'created') {
         setSubmitStatus('success');
         onSuccess?.();
       }
+      
+      // Reset captcha after successful submission
+      captchaRef.current?.resetCaptcha();
+      setCaptchaToken('');
+      
     } catch (error: any) {
-      console.error('Signup error:', error);
+      console.error('Waitlist signup error:', error);
+      setErrorMessage(error.message || 'An unexpected error occurred. Please try again.');
       setSubmitStatus('error');
-      setErrorMessage('Something went wrong. Please try again.');
+      
+      // Reset captcha on error so user can try again
+      captchaRef.current?.resetCaptcha();
+      setCaptchaToken('');
     } finally {
       setIsSubmitting(false);
     }
@@ -243,6 +272,22 @@ export const WaitlistSignupForm: React.FC<WaitlistSignupFormProps> = ({
         />
       </div>
 
+      {/* hCaptcha Widget */}
+      <div className="flex justify-center">
+        <HCaptcha
+          ref={captchaRef}
+          sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" // Replace with your actual hCaptcha site key
+          onVerify={setCaptchaToken}
+          onError={() => {
+            setErrorMessage('Captcha verification failed. Please try again.');
+            setSubmitStatus('error');
+          }}
+          onExpire={() => {
+            setCaptchaToken('');
+          }}
+        />
+      </div>
+
       {errorMessage && (
         <div className="text-red-400 text-sm bg-[rgba(239,68,68,0.10)] border border-[rgba(239,68,68,0.20)] rounded-md p-3">
           {errorMessage}
@@ -251,7 +296,7 @@ export const WaitlistSignupForm: React.FC<WaitlistSignupFormProps> = ({
 
       <button
         type="submit"
-        disabled={isSubmitting}
+        disabled={isSubmitting || !captchaToken}
         className="w-full flex h-12 justify-center items-center relative cursor-pointer bg-blue-600 hover:bg-blue-700 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed px-6 py-3 rounded-md border-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 active:transition-transform"
       >
         <span className="text-white text-center text-sm font-medium leading-5">
