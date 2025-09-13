@@ -76,7 +76,7 @@ export const WaitlistSignupForm: React.FC<WaitlistSignupFormProps> = ({
     
     try {
       // Call the new hardened Edge Function
-      const response = await fetch(`https://rjislxmkntaunloeqdzx.supabase.co/functions/v1/waitlist-intake`, {
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/waitlist-intake`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -276,7 +276,7 @@ export const WaitlistSignupForm: React.FC<WaitlistSignupFormProps> = ({
       <div className="flex justify-center">
         <HCaptcha
           ref={captchaRef}
-          sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" // Replace with your actual hCaptcha site key
+          sitekey={import.meta.env.VITE_HCAPTCHA_SITEKEY} // Replace with your actual hCaptcha site key
           onVerify={setCaptchaToken}
           onError={() => {
             setErrorMessage('Captcha verification failed. Please try again.');
