@@ -6,7 +6,7 @@ import BenefitsSection from "@/components/BenefitsSection";
 import MissionSection from "@/components/MissionSection";
 import EmailCtaSection from "@/components/EmailCtaSection";
 import Footer from "@/components/Footer";
-import LoginModal from "@/components/LoginModal";
+import LoginModal from "@/components/auth/LoginModal";
 
 export default function Index() {
   const [loginOpen, setLoginOpen] = React.useState(false);
@@ -22,9 +22,9 @@ export default function Index() {
       />
 
       <BenefitsSection
-  trainerImage="/assets/Ross_Does_Optimised_Trainer.JPG"
-  clientImage="https://api.builder.io/api/v1/image/assets/TEMP/f4044a7cae68fd2752a37eff955a9b24c1cadcc4?width=1302"
-/>
+        trainerImage="/assets/Ross_Does_Optimised_Trainer.JPG"
+        clientImage="https://api.builder.io/api/v1/image/assets/TEMP/f4044a7cae68fd2752a37eff955a9b24c1cadcc4?width=1302"
+      />
 
       <MissionSection />
       <EmailCtaSection />
