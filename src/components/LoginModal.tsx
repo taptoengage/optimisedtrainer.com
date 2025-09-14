@@ -17,11 +17,12 @@ const LoginModal: React.FC<Props> = ({ isOpen, onClose }) => {
   const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
 
-  // OAuth callback (must be whitelisted in Supabase)
-  const callbackUrl = useMemo(
-    () => `${window.location.origin}/auth/callback`,
-    []
-  );
+  // OAuth callback - redirect to app domain to store session there
+  const OAUTH_CALLBACK_URL = "https://optimisedtrainer.online/auth/callback";
+  
+  // App domain URLs for email authentication
+  const APP_EMAIL_LOGIN_URL = "https://optimisedtrainer.online/login";
+  const APP_SIGNUP_URL = "https://optimisedtrainer.online/signup";
 
   // Close on ESC
   useEffect(() => {
@@ -56,7 +57,7 @@ const LoginModal: React.FC<Props> = ({ isOpen, onClose }) => {
       setLoading(true);
       const { error: err } = await supabase.auth.signInWithOAuth({
         provider: "google",
-        options: { redirectTo: callbackUrl },
+        options: { redirectTo: OAUTH_CALLBACK_URL },
       });
       if (err) throw err; // Redirect will occur on success
     } catch (e: any) {
@@ -65,65 +66,26 @@ const LoginModal: React.FC<Props> = ({ isOpen, onClose }) => {
     } finally {
       setLoading(false);
     }
-  }, [callbackUrl]);
+  }, []);
 
   const signInWithPassword = useCallback(
-    async (e: React.FormEvent) => {
+    (e: React.FormEvent) => {
       e.preventDefault();
-      try {
-        setError(null);
-        setInfo(null);
-        setLoading(true);
-        const { error: err } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-        if (err) throw err;
-        // Session listener will redirect; also close the modal
-        onClose();
-      } catch (e: any) {
-        console.error(e);
-        // Typical cause: email+password not enabled, or user has no password (only OAuth previously)
-        setError(
-          "Invalid email or password. If your account was created with Google, use “Continue with Google”."
-        );
-      } finally {
-        setLoading(false);
-      }
+      // Redirect to the app login page with the email prefilled
+      const url = APP_EMAIL_LOGIN_URL + "?email=" + encodeURIComponent(email);
+      window.location.href = url;
     },
-    [email, password, onClose]
+    [email]
   );
 
   const signUpWithPassword = useCallback(
-    async (e: React.FormEvent) => {
+    (e: React.FormEvent) => {
       e.preventDefault();
-      try {
-        setError(null);
-        setInfo(null);
-        setLoading(true);
-        const { data, error: err } = await supabase.auth.signUp({
-          email,
-          password,
-        });
-        if (err) throw err;
-        // If email confirmations are on, Supabase will email the user
-        if (data.user && !data.session) {
-          setInfo(
-            "Account created. Check your email to confirm, then sign in."
-          );
-        } else {
-          // Session may exist immediately if confirmations are off
-          onClose();
-          window.location.replace(APP_DASHBOARD_URL);
-        }
-      } catch (e: any) {
-        console.error(e);
-        setError(e.message || "Sign up failed.");
-      } finally {
-        setLoading(false);
-      }
+      // Redirect to the app signup page with the email prefilled
+      const url = APP_SIGNUP_URL + "?email=" + encodeURIComponent(email);
+      window.location.href = url;
     },
-    [email, password, onClose]
+    [email]
   );
 
   if (!isOpen) return null;
