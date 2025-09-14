@@ -41,7 +41,7 @@ export default function Index() {
       </button>
 
       {/* Modal mount */}
-      <LoginModal open={loginOpen} onClose={() => setLoginOpen(false)} />
+      <LoginModal isOpen={loginOpen} onClose={() => setLoginOpen(false)} />
     </main>
   );
 }
