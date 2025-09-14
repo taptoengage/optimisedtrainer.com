@@ -6,7 +6,7 @@ import BenefitsSection from "@/components/BenefitsSection";
 import MissionSection from "@/components/MissionSection";
 import EmailCtaSection from "@/components/EmailCtaSection";
 import Footer from "@/components/Footer";
-import LoginModal from "@/components/auth/LoginModal";
+import LoginModal from "@/components/LoginModal";
 
 export default function Index() {
   const [loginOpen, setLoginOpen] = React.useState(false);
