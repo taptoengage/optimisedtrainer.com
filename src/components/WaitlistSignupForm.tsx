@@ -57,66 +57,65 @@ export const WaitlistSignupForm: React.FC<WaitlistSignupFormProps> = ({
     return true;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    if (!captchaToken) {
-      setErrorMessage('Please complete the captcha verification.');
-      setSubmitStatus('error');
-      return;
-    }
+  if (!validateForm()) return;
 
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-    setErrorMessage('');
-    
-    try {
-      // Call the new hardened Edge Function
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/waitlist-intake`, {
+  if (!captchaToken) {
+    setErrorMessage('Please complete the captcha verification.');
+    setSubmitStatus('error');
+    return;
+  }
+
+  setIsSubmitting(true);
+  setSubmitStatus('idle');
+  setErrorMessage('');
+
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/waitlist-intake`,
+      {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: formData.email,
-          token: captchaToken
-        })
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || 'Failed to submit');
+          token: captchaToken,
+        }),
       }
+    );
 
-      if (result.status === 'duplicate') {
-        setSubmitStatus('success');
-        setErrorMessage("You're already on our waitlist! We'll be in touch soon.");
-      } else if (result.status === 'created') {
-        setSubmitStatus('success');
-        onSuccess?.();
-      }
-      
-      // Reset captcha after successful submission
-      captchaRef.current?.resetCaptcha();
-      setCaptchaToken('');
-      
-    } catch (error: any) {
-      console.error('Waitlist signup error:', error);
-      setErrorMessage(error.message || 'An unexpected error occurred. Please try again.');
-      setSubmitStatus('error');
-      
-      // Reset captcha on error so user can try again
-      captchaRef.current?.resetCaptcha();
-      setCaptchaToken('');
-    } finally {
-      setIsSubmitting(false);
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.error || 'Failed to submit');
     }
-  };
+
+    // ✅ Treat any of these as success, per server contract
+    if (['ok', 'created', 'duplicate'].includes(result.status)) {
+      setSubmitStatus('success');
+      // Optional: if you want a custom success message from server
+      if (result.message) {
+        // reuse errorMessage area as info area or add a successMessage state if you prefer
+        setErrorMessage(result.message);
+      }
+      onSuccess?.();
+    } else {
+      // Unexpected shape but 200 OK — still treat as success fallback
+      setSubmitStatus('success');
+      onSuccess?.();
+    }
+  } catch (error: any) {
+    console.error('Waitlist signup error:', error);
+    setErrorMessage(error.message || 'An unexpected error occurred. Please try again.');
+    setSubmitStatus('error');
+  } finally {
+    // Reset captcha after any result so the user can retry if needed
+    captchaRef.current?.resetCaptcha();
+    setCaptchaToken('');
+    setIsSubmitting(false);
+  }
+};
 
   if (submitStatus === 'success') {
     return (
