@@ -56,12 +56,6 @@ const LoginModal: React.FC<Props> = ({ isOpen, onClose }) => {
       setInfo(null);
       setLoading(true);
       
-      console.info('OAUTH_DEBUG_MARKETING', {
-        origin: window.location.origin,
-        redirectTo: 'https://optimisedtrainer.online/auth/callback',
-        supabaseUrl: (supabase as any).rest?.url || 'unknown'
-      });
-      
       const { error: err } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: { redirectTo: OAUTH_CALLBACK_URL },
